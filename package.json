@@ -1,0 +1,26 @@
+{
+  "name": "javascript-softuni-course",
+  "version": "1.0.0",
+  "description": "exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pand161/JavaScript-SoftUni-Course.git"
+  },
+  "keywords": [
+    "MIT"
+  ],
+  "author": "ME",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pand161/JavaScript-SoftUni-Course/issues"
+  },
+  "homepage": "https://github.com/Pand161/JavaScript-SoftUni-Course#readme",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
