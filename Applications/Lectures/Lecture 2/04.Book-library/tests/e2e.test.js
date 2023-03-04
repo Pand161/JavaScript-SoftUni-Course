@@ -1,9 +1,12 @@
+//Tests
 const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
-const host = 'http://localhost:3000'; // Application host (NOT service host - that can be anything)
+const userApplicationHttpPort = '3000/';
 
-const DEBUG = false;
+const host = 'http://localhost:' + userApplicationHttpPort; // Application host (NOT service host - that can be anything)
+
+const DEBUG = true;
 const slowMo = 500;
 
 const mockData = {
@@ -36,9 +39,9 @@ describe('E2E tests', function () {
   this.timeout(DEBUG ? 120000 : 7000);
   before(
     async () =>
-    (browser = await chromium.launch(
-      DEBUG ? { headless: false, slowMo } : {}
-    ))
+      (browser = await chromium.launch(
+        DEBUG ? { headless: false, slowMo } : {}
+      ))
   );
   after(async () => await browser.close());
   beforeEach(async () => {
@@ -114,6 +117,7 @@ describe('E2E tests', function () {
     it('Edit should populate form with correct data', async () => {
       const info = mockData.catalog;
       const data = mockData.catalog[0];
+
       await page.goto(host);
 
       const { get } = await handle(endpoints.catalog);
@@ -125,10 +129,11 @@ describe('E2E tests', function () {
       get2(data);
 
       await page.click(`tr:has-text("${data.title}") >> text=Edit`);
-
       await page.waitForSelector('form');
 
-      const inputs = await page.$$eval('form input', t => t.map(i => i.value));
+      const inputs = await page.$$eval('form input', (t) =>
+        t.map((i) => i.value)
+      );
 
       expect(inputs[0]).to.equal(data.title);
       expect(inputs[1]).to.equal(data.author);
