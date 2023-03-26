@@ -42,7 +42,6 @@ async function request(method, url, data) {
 
     return result;
   } catch (error) {
-    alert(error.message);
     throw error.message;
   }
 }

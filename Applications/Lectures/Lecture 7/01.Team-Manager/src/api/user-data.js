@@ -15,6 +15,7 @@ export function clearUserData() {
 function parseUserData(data) {
   return {
     email: data.email || null,
+    username: data.username || null,
     id: data._id || null,
     accessToken: data.accessToken || null,
   };

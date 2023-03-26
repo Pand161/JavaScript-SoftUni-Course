@@ -1,3 +1,5 @@
-export function myTeamsPage() {
-  console.log('my teams');
+import { myTeamsTemplate } from '../templates/my-teams.js';
+
+export function myTeamsPage(ctx) {
+  ctx.render(myTeamsTemplate);
 }

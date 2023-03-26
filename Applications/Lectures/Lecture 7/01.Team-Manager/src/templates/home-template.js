@@ -10,7 +10,7 @@ export const homeTemplate = () => html` <section id="home">
         Looking for a team to join? Browse our communities and find like-minded
         people!
       </p>
-      <a href="#" class="action cta">Sign Up Now</a>
+      <a href="/register" class="action cta">Sign Up Now</a>
       <a href="#" class="action cta">Browse Teams</a>
     </div>
   </article>
