@@ -1,6 +1,6 @@
 import { html } from '../lib.js';
 
-export const homeTemplate = () => html` <section id="home">
+export const homeTemplate = (ctx) => html` <section id="home">
   <article class="hero layout">
     <img src="./assets/team.png" class="left-col pad-med" />
     <div class="pad-med tm-hero-col">
@@ -10,8 +10,12 @@ export const homeTemplate = () => html` <section id="home">
         Looking for a team to join? Browse our communities and find like-minded
         people!
       </p>
-      <a href="/register" class="action cta">Sign Up Now</a>
-      <a href="#" class="action cta">Browse Teams</a>
+      ${ctx.isAuthenticated ? userView() : guestView()}
     </div>
   </article>
 </section>`;
+
+const guestView = () =>
+  html`<a href="/register" class="action cta">Sign Up Now</a>`;
+const userView = () =>
+  html`<a href="/browse" class="action cta">Browse Teams</a>`;
