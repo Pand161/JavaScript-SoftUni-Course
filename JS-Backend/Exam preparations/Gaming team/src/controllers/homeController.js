@@ -17,8 +17,6 @@ router.get('/search', async (req, res) => {
 
 router.post('/search', async (req, res) => {
   const { name, platform } = req.body;
-  console.log(name);
-  console.log(platform);
   // const game = await gameManager.getAllGames();
   const game = await gameManager.getSearchedGames(name, platform);
   res.render('search', { game });
